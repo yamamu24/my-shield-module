@@ -19,7 +19,6 @@
 
 include:
   - board: seeeduino_xiao_ble
-    shield: Macro222
-# _left
-#   - board: seeeduino_xiao_ble
-#     shield: Macro222_right
+    shield: Macro222_left
+  - board: seeeduino_xiao_ble
+    shield: Macro222_right
