@@ -16,7 +16,7 @@
     physical_layout0: physical_layout0 {
         compatible = "zmk,physical-layout";
         display-name = "Default Layout";
-        transform = <&default_transforggm>;
+        transform = <&default_transform>;
         // chose nodeで設定しているからkscanいらない？ kscan = <&kscan0>;
         keys  //                     w   h    x    y     rot    rx    ry
             = <&key_physical_attrs 100 100    0    0       0     0     0>
