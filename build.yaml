@@ -16,4 +16,9 @@
 #     cmake-args: -DCONFIG_ZMK_USB_LOGGING=y
 #     artifact-name: corne_left_with_logging
 #
----
+
+include:
+  - board: seeeduino_xiao_ble
+    shield: Macro222_left
+  - board: seeeduino_xiao_ble
+    shield: Macro222_right

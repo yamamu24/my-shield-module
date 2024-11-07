@@ -1,0 +1,6 @@
+#No whitespace after the comma or in your part name!
+config SHIELD_MACRO222_LEFT
+	def_bool $(shields_list_contains,macro222_left)
+
+config SHIELD_MACRO222_RIGHT
+	def_bool $(shields_list_contains,macro222_right)
