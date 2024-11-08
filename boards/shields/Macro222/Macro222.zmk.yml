@@ -7,7 +7,7 @@ requires: [seeeduino_xiao_ble] # MCU daughter board
 #exposes: [] # interconnect expect MCU
 features: # keys,display, encoder, underglow, backlight, studio(ready to use ZMK Studio), pointer(future, eg)joystick, touchpad, trackpoint)
   - keys
-  - studio
+  # - studio
 siblings:
   - Macro222_left
   - Macro222_right
