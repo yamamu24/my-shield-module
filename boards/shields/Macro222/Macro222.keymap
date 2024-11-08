@@ -2,7 +2,7 @@
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer { // Layer 0
+        default { // Layer 0    default_layer -> default
             // -------------------------------------
             // |     1     |     2     |     5     |     6     |
             // |     3     |     4     |     7     |studio_unlock|
