@@ -6,7 +6,7 @@
 / {
     chosen {
         zmk,kscan = &kscan0;
-        zmk,transform = &default_transform
+        zmk,transform = &default_transform;
         zmk,physical-layout = &physical_layout0;
         // Other chosen items
     };
