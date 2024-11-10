@@ -1,4 +1,4 @@
-if SHIELD_MACRO222_LEFT
+if SHIELD_MACRO222_RIGHT #ここを変えてセントラル側に問題のコードを移行
 
 # Name must be less than 16 characters long!
 config ZMK_KEYBOARD_NAME
