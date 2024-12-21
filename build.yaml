@@ -22,4 +22,3 @@ include:
     shield: Macro222_left
   - board: seeeduino_xiao_ble
     shield: Macro222_right
-    snippet: zmk-usb-logging
