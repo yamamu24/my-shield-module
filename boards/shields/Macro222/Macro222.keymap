@@ -1,5 +1,6 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
 
 / {
     keymap {
@@ -10,7 +11,7 @@
             // |     a     |     b     |     e     |     f     |
             // |     c     |     d     |     g     |     h     |
             bindings = <
-                &kp A    &kp B    &kp E    &kp F
+                &kp A    &kp B    &kp E    &bt BT_CLR
                 &kp C    &kp D    &kp G    &kp H
             >;
         };
