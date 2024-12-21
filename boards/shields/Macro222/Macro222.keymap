@@ -12,7 +12,7 @@
             // |     c     |     d     |     g     |     h     |
             bindings = <
                 &kp A    &kp B    &kp E    &bt BT_CLR
-                &kp C    &kp D    &kp G    &kp H
+                &kp C    &kp D    &kp G    &bt BT_SEL 0
             >;
         };
     };
