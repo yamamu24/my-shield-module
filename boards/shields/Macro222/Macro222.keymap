@@ -11,8 +11,8 @@
             // |     a     |     b     |     e     |     f     |
             // |     c     |     d     |     g     |     h     |
             bindings = <
-                &kp A    &kp B    &kp E    &bt BT_CLR
-                &kp C    &kp D    &kp G    &bt BT_SEL 0
+                &kp A    &kp B    &kp E    &bt BT_CLR_ALL
+                &kp C    &kp D    &bt BT_PRV    &bt BT_NXT
             >;
         };
     };
