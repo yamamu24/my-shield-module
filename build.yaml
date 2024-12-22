@@ -22,3 +22,5 @@ include:
     shield: Macro222_left
   - board: seeeduino_xiao_ble
     shield: Macro222_right
+  - board: seeeduino_xiao_ble
+    shield: settings_reset
