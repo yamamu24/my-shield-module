@@ -2,6 +2,7 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/pointing.h>
 
 / {
     keymap {
@@ -12,8 +13,8 @@
             // |     a     |     b     |     e     |     f     |
             // |     c     |     d     |     g     |     h     |
             bindings = <
-                &kp A    &kp B    &kp E    &bt BT_CLR_ALL
-                &kp C    &kp D    &out OUT_USB    &out OUT_BLE
+                &kp A    &kp B    &out OUT_TOG    &bt BT_CLR_ALL
+                &kp C    &kp D    &mkp LCLK       &mkp RCLK
             >;
         };
     };
