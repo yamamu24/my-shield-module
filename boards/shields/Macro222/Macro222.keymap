@@ -13,7 +13,7 @@
             // |     c     |     d     |     g     |     h     |
             bindings = <
                 &kp A    &kp B    &kp E    &bt BT_CLR_ALL
-                &kp C    &kp D    &out OUT_BLE    &out OUT_BLE
+                &kp C    &kp D    &out OUT_USB    &out OUT_BLE
             >;
         };
     };
