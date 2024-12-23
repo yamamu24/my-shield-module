@@ -1,4 +1,6 @@
 #include "Macro222.dtsi" // The shared dtsi file is included in the overlay
+#include <dt-bindings/zmk/input_transform.h>
+
 
 // matrix transformでのピン数オフセット
 &default_transform { // Offset of 2 because the left side has 2 columns
@@ -59,7 +61,15 @@
   trackball_listener {
     compatible = "zmk,input-listener";
     device = <&trackball>;
-
   };
+};
+
+// センサーの向きを変更するためのinput processors
+/ {
+    glidepoint_listener {
+        compatible = "zmk,input-listener";
+        device = <&trackball>;
+        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
+    };
 };
 //-------------------------------------------------------------------
