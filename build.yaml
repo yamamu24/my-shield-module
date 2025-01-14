@@ -19,8 +19,8 @@
 
 include:
   - board: seeeduino_xiao_ble
-    shield: Macro222_left
+    shield: ZaruBall_left
   - board: seeeduino_xiao_ble
-    shield: Macro222_right
+    shield: ZaruBall_right
   - board: seeeduino_xiao_ble
     shield: settings_reset

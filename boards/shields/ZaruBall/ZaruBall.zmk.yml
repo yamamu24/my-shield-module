@@ -1,6 +1,6 @@
 file_format: "1" # ZMK's format version. We can only use "1" right now.
-id: Macro222 # name for computer
-name: Macro222 # name for human
+id: ZaruBall # name for computer
+name: ZaruBall # name for human
 type: shield # board, shield, interconnect
 url: https://github.com/ImSota/my-shield-module #canonical URL used to learn more about the board/shield
 requires: [seeeduino_xiao_ble] # MCU daughter board
@@ -9,5 +9,5 @@ features: # keys,display, encoder, underglow, backlight, studio(ready to use ZMK
   - keys
   - studio
 siblings:
-  - Macro222_left
-  - Macro222_right
+  - ZaruBall_left
+  - ZaruBall_right
