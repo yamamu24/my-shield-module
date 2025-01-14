@@ -1,4 +1,4 @@
-#include "ZaruBall.dtsi"
+#include <ZaruBall.dtsi>
 
 &kscan0 {
     col-gpios = 
