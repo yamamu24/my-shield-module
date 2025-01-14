@@ -1,4 +1,4 @@
-#include "ZaruBall.dtsi" // The shared dtsi file is included in the overlay
+#include "ZaruBall.dtsi"; // The shared dtsi file is included in the overlay
 
 // Label of the kscan node in the dtsi
 &kscan0 {
