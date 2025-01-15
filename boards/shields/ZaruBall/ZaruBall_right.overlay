@@ -1,4 +1,4 @@
-// #include "ZaruBall.dtsi"
+#include "ZaruBall.dtsi"
 //#include <dt-bindings/zmk/input_transform.h>
 
 
