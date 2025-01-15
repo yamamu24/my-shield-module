@@ -1,7 +1,6 @@
 #include <dt-bindings/zmk/matrix_transform.h> // included when matrix transform added
 #include <physical_layouts.dtsi> // When using keys property include needed
 
-
 // chosen node
 / {
     chosen {
