@@ -41,7 +41,7 @@
     status = "okay";
     device = <&trackball>;
     //Input Processor XとY方向を逆転している
-    input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
+    //input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
 };
 
 // pmw-3610-driverを動かすコード（古いブランチ:pointers-move-scroll）----------------------------------
