@@ -19,80 +19,80 @@
 };
 
 // pmw3610用
-&xiao_spi {
-    compatible = "nordic,nrf-spim";
-    status = "okay";
-    cs-gpios = <&gpio1 0 GPIO_ACTIVE_LOW>;
-
-    trackball: trackball@0 {
-        compatible = "pixart,pmw3610";
-        reg = <0>;
-        spi-max-frequency = <2000000>;
-        status = "okay";
-        irq-gpios = <&gpio0 16 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; // MOTION (defaultではdr-gpio)
-
-        sensitivity = "2x";
-        sleep;
-        no-taps;
-    };
-};
-
-// Overrides for the input listener node in .dtsi
-&trackball_listener {
-    status = "okay";
-    device = <&trackball>;
-    //Input Processor XとY方向を逆転している
-    // input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
-};
-
-// pmw-3610-driverを動かすコード（古いブランチ:pointers-move-scroll）----------------------------------
-// &pinctrl {
-//     spi0_default: spi0_default {
-//         group1 {
-//             psels = <NRF_PSEL(SPIM_SCK, 0, 5)>,
-//                 <NRF_PSEL(SPIM_MOSI, 0, 4)>,
-//                 <NRF_PSEL(SPIM_MISO, 0, 4)>;
-//         };
-//     };
-
-//     spi0_sleep: spi0_sleep {
-//         group1 {
-//             psels = <NRF_PSEL(SPIM_SCK, 0, 5)>,
-//                 <NRF_PSEL(SPIM_MOSI, 0, 4)>,
-//                 <NRF_PSEL(SPIM_MISO, 0, 4)>;
-//             low-power-enable;
-//         };
-//     };
-// };
-
-// &spi0 {
+// &xiao_spi {
+//     // compatible = "nordic,nrf-spim";
 //     status = "okay";
-//     compatible = "nordic,nrf-spim";
-//     pinctrl-0 = <&spi0_default>;
-//     pinctrl-1 = <&spi0_sleep>;
-//     pinctrl-names = "default", "sleep";
-//     cs-gpios = <&gpio1 0 GPIO_ACTIVE_LOW>; // CS
+//     cs-gpios = <&gpio1 0 GPIO_ACTIVE_LOW>;
 
 //     trackball: trackball@0 {
-//         status = "okay";
 //         compatible = "pixart,pmw3610";
 //         reg = <0>;
 //         spi-max-frequency = <2000000>;
-//         irq-gpios = <&gpio0 16 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; // MOTION
+//         status = "okay";
+//         irq-gpios = <&gpio0 16 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; // MOTION (defaultではdr-gpio)
+
+//         sensitivity = "2x";
+//         sleep;
+//         no-taps;
+//     };
+// };
+
+// // Overrides for the input listener node in .dtsi
+// &trackball_listener {
+//     status = "okay";
+//     device = <&trackball>;
+//     //Input Processor XとY方向を逆転している
+//     // input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
+// };
+
+// pmw-3610-driverを動かすコード（古いブランチ:pointers-move-scroll）----------------------------------
+&pinctrl {
+    spi0_default: spi0_default {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 5)>,
+                <NRF_PSEL(SPIM_MOSI, 0, 4)>,
+                <NRF_PSEL(SPIM_MISO, 0, 4)>;
+        };
+    };
+
+    spi0_sleep: spi0_sleep {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 5)>,
+                <NRF_PSEL(SPIM_MOSI, 0, 4)>,
+                <NRF_PSEL(SPIM_MISO, 0, 4)>;
+            low-power-enable;
+        };
+    };
+};
+
+&spi0 {
+    status = "okay";
+    compatible = "nordic,nrf-spim";
+    pinctrl-0 = <&spi0_default>;
+    pinctrl-1 = <&spi0_sleep>;
+    pinctrl-names = "default", "sleep";
+    cs-gpios = <&gpio1 0 GPIO_ACTIVE_LOW>; // CS
+
+    trackball: trackball@0 {
+        status = "okay";
+        compatible = "pixart,pmw3610";
+        reg = <0>;
+        spi-max-frequency = <2000000>;
+        irq-gpios = <&gpio0 16 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; // MOTION
 
         /*   optional features   */
         // snipe-layers = <1>;
         // scroll-layers = <2 3>;
         // automouse-layer = <4>;
-//     };
-// };
+    };
+};
 
-// / {
-//   trackball_listener {
-//     compatible = "zmk,input-listener";
-//     device = <&trackball>;
-//   };
-// };
+/ {
+  trackball_listener {
+    compatible = "zmk,input-listener";
+    device = <&trackball>;
+  };
+};
 
 // センサーの向きを変更するためのinput processors
 /// {
