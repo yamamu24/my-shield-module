@@ -20,6 +20,7 @@
 
 // pmw3610用
 &xiao_spi {
+    compatible = "nordic,nrf-spim";
     status = "okay";
     cs-gpios = <&gpio1 0 GPIO_ACTIVE_LOW>;
 
