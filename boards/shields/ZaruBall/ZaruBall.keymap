@@ -19,7 +19,7 @@
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer { // Layer 0
+        base_layer { // Layer 0
             display-name = "Base";
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
             
