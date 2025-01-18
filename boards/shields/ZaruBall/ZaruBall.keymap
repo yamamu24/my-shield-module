@@ -24,7 +24,7 @@
 
         function_layer { // Layer 1
             display-name = "Function";
-            sensor-bindings = <&inc_dec_kp RIGHT C_LEFT>;
+            sensor-bindings = <&inc_dec_kp RIGHT LEFT>;
             
             bindings = <
                 &kp ESC   &kp F1    &kp F2    &kp F3    &kp F4    &kp F5                              &bt BT_CLR_ALL &kp KP_N7    &kp KP_N8    &kp KP_N9    &kp KP_SLASH    &kp KP_NUMLOCK
