@@ -5,10 +5,10 @@
 #include <dt-bindings/zmk/pointing.h>
 //#include <dt-bindings/zmk/mouse.h>
 
-#define BASE 0
-#define LOWER 1
-#define RAISE 2
-#define ADJUST 3
+// #define BASE 0
+// #define LOWER 1
+// #define RAISE 2
+// #define ADJUST 3
 
 // / {
 //     conditional_layers {
