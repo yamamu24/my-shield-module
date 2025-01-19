@@ -4,7 +4,7 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
 //#include <dt-bindings/zmk/mouse.h>
-// #include <behaviors/rgbled_widget.dtsi>
+#include <behaviors/rgbled_widget.dtsi>
 
 / {
     conditional_layers {
@@ -30,22 +30,6 @@
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&mt RCTL LANG1>, <&mo 2>, <&mo 5>;
-        };
-
-        ind_bat: ind_bat {
-            compatible = "zmk,behavior-rgbled-widget";
-            #binding-cells = <0>;
-            indicate-battery;
-        };
-        /omit-if-no-ref/ ind_con: ind_con {
-            compatible = "zmk,behavior-rgbled-widget";
-            #binding-cells = <0>;
-            indicate-connectivity;
-        };
-        /omit-if-no-ref/ ind_lyr: ind_lyr {
-            compatible = "zmk,behavior-rgbled-widget";
-            #binding-cells = <0>;
-            indicate-layer;
         };
     };
 
