@@ -35,15 +35,6 @@
         };
     };
 
-    macros {
-        testmacro: testmacro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LS(Z) &kp A &kp R &kp U &kp LS(S) &kp A &kp R &kp U>;
-            label = "TESTMACRO";
-        };
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
