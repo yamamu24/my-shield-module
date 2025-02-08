@@ -7,6 +7,8 @@
 
 //#include <dt-bindings/zmk/mouse.h>
 
+#include <behaviors/rgbled_widget.dtsi>
+
 / {
     conditional_layers {
         compatible = "zmk,conditional-layers";
@@ -98,7 +100,7 @@
 &trans  &none  &none  &none      &none      &none                            &none      &none     &none     &none     &none      &none
 &trans  &none  &none  &mkp RCLK  &mkp LCLK  &msc SCRL_UP    &msc SCRL_LEFT   &kp PG_UP  &kp HOME  &none     &kp UP    &none      &none   &none
 &trans  &none  &none  &mkp MB4   &mkp MB5   &msc SCRL_DOWN  &msc SCRL_RIGHT  &kp PG_DN  &kp END   &kp LEFT  &kp DOWN  &kp RIGHT  &none   &none
-&trans         &none  &trans     &trans     &trans          &trans           &trans     &kp DEL                                  &trans
+&trans         &none  &trans     &trans     &trans          &trans           &trans     &kp DEL                                          &trans
             >;
         };
 
@@ -106,11 +108,11 @@
             display-name = "Adjust";
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
             bindings = <
-&trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &none   &none           &bt BT_CLR_ALL  &none           &none  &none  &none  &none
-&trans  &none         &none         &none         &none   &none           &bt BT_CLR      &none           &none  &none  &none  &none
-&trans  &none         &none         &none         &none   &none   &none   &none           &out OUT_TOG    &none  &none  &none  &none   &none
-&trans  &none         &none         &none         &none   &none   &none   &none           &studio_unlock  &none  &none  &none  &none   &none
-&trans                &kp C_MUTE    &trans        &trans  &trans  &trans  &trans          &kp DEL                              &trans
+&trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &none   &none                      &bt BT_CLR_ALL  &none  &none  &none  &none   &none
+&trans  &none         &none         &none         &none   &none                      &bt BT_CLR      &none  &none  &none  &none   &none
+&trans  &none         &none         &none         &none   &none   &none   &ind_bat   &out OUT_TOG    &none  &none  &none  &none   &none
+&trans  &none         &none         &none         &none   &none   &none   &ind_con   &studio_unlock  &none  &none  &none  &none   &none
+&trans                &kp C_MUTE    &trans        &trans  &trans  &trans  &trans     &kp DEL                                      &trans
             >;
         };
 
