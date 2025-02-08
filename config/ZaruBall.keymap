@@ -34,6 +34,7 @@
             bindings = <&mt RCTL LANG1>, <&mo 2>, <&mo 5>;
         };
     };
+};
 
 / {
     macros {
