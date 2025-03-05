@@ -1,0 +1,105 @@
+#include "ZaruBall.dtsi"
+//#include <dt-bindings/zmk/input_transform.h>
+
+
+// matrix transformでのピン数オフセット
+&default_transform { // Offset of 7 because the left side has 2 columns
+    col-offset = <7>;
+};
+
+// kscan
+&kscan0 {
+    col-gpios = 
+        <&xiao_d 10 GPIO_ACTIVE_HIGH>,
+        <&xiao_d 9 GPIO_ACTIVE_HIGH>,
+        <&xiao_d 8 GPIO_ACTIVE_HIGH>,
+        <&xiao_d 7 GPIO_ACTIVE_HIGH>,
+        <&gpio0 9 GPIO_ACTIVE_HIGH>,
+        <&gpio0 10 GPIO_ACTIVE_HIGH>;
+};
+
+// pmw3610用
+// &xiao_spi {
+//     // compatible = "nordic,nrf-spim";
+//     status = "okay";
+//     cs-gpios = <&gpio1 0 GPIO_ACTIVE_LOW>;
+
+//     trackball: trackball@0 {
+//         compatible = "pixart,pmw3610";
+//         reg = <0>;
+//         spi-max-frequency = <2000000>;
+//         status = "okay";
+//         irq-gpios = <&gpio0 16 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; // MOTION (defaultではdr-gpio)
+
+//         sensitivity = "2x";
+//         sleep;
+//         no-taps;
+//     };
+// };
+
+// // Overrides for the input listener node in .dtsi
+// &trackball_listener {
+//     status = "okay";
+//     device = <&trackball>;
+//     //Input Processor XとY方向を逆転している
+//     // input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
+// };
+
+// pmw-3610-driverを動かすコード（古いブランチ:pointers-move-scroll）----------------------------------
+&pinctrl {
+    spi0_default: spi0_default {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 5)>,
+                <NRF_PSEL(SPIM_MOSI, 0, 4)>,
+                <NRF_PSEL(SPIM_MISO, 0, 4)>;
+        };
+    };
+
+    spi0_sleep: spi0_sleep {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 5)>,
+                <NRF_PSEL(SPIM_MOSI, 0, 4)>,
+                <NRF_PSEL(SPIM_MISO, 0, 4)>;
+            low-power-enable;
+        };
+    };
+};
+
+&spi0 {
+    status = "okay";
+    compatible = "nordic,nrf-spim";
+    pinctrl-0 = <&spi0_default>;
+    pinctrl-1 = <&spi0_sleep>;
+    pinctrl-names = "default", "sleep";
+    cs-gpios = <&gpio1 0 GPIO_ACTIVE_LOW>; // CS
+
+    trackball: trackball@0 {
+        status = "okay";
+        compatible = "pixart,pmw3610";
+        reg = <0>;
+        spi-max-frequency = <2000000>;
+        irq-gpios = <&gpio0 16 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; // MOTION
+
+        /*   optional features   */
+        // snipe-layers = <1 2>;
+        scroll-layers = <1 2>;
+        automouse-layer = <4>;
+    };
+};
+
+/ {
+  trackball_listener {
+    compatible = "zmk,input-listener";
+    device = <&trackball>;
+  };
+};
+
+// センサーの向きを変更するためのinput processors
+/// {
+//    glidepoint_listener {
+//        compatible = "zmk,input-listener";
+//        device = <&trackball>;
+//        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
+//    };
+//};
+//-------------------------------------------------------------------
