@@ -12,8 +12,8 @@
 #define LOWER 1
 #define RAISE 2
 #define ADJUST 3
-#define MOUSE 4
 
+#define MOUSE 4
 #define SCROLL 1
 
 / {
@@ -52,7 +52,13 @@
         to_layer_0: to_layer_0 {
             compatible = "zmk,behavior-macro-one-param";                    
             #binding-cells = <1>;
-            bindings = <&to BASE &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
+            bindings = 
+                <&to BASE>,
+                <&macro_press>,
+                <&macro_param_1to1 &mkp MACRO_PLACEHOLDER>,
+                <&macro_pause_for_release>,
+                <&macro_release>,
+                <&macro_param_1to1 &mkp MACRO_PLACEHOLDER>;
             label = "TO_layer_0";
         };
 
@@ -67,8 +73,7 @@
                 <&macro_release>,
                 <&macro_param_1to1 &mkp MACRO_PLACEHOLDER>,
                 <&macro_tap>,
-                <&sl 4>;
-
+                <&sl MOUSE>;
             label = "MKP_EXIT_AML";
         };
 
@@ -77,10 +82,10 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =  
-                <&to 1>, 
-                <&macro_press &mo 1>,
+                <&to SCROLL>, 
+                <&macro_press &mo SCROLL>,
                 <&macro_pause_for_release>,
-                <&macro_release &mo 1>;
+                <&macro_release &mo SCROLL>;
         };
     };
 };
@@ -96,7 +101,7 @@
 &kp ESC    &kp N1  &kp N2      &kp N3    &kp N4     &kp N5                                  &kp N6     &kp N7    &kp N8  &kp N9     &kp N0   &kp MINUS
 &kp TAB    &kp Q   &kp W       &kp E     &kp R      &kp T                                   &kp Y      &kp U     &kp I   &kp O      &kp P    &kp EQUAL
 &kp CAPS   &kp A   &kp S       &kp D     &kp F      &kp G      &kp INS          &kp LBKT   &kp H     &kp J   &kp K      &kp L    &kp SEMI   &kp SQT
-&kp LSHFT  &kp Z   &kp X       &kp C     &kp V      &kp B      &kp GRAVE        &kp RBKT   &kp N     &kp M   &kp COMMA  &kp DOT  &kp FSLH   &lt 1 BACKSLASH
+&kp LSHFT  &kp Z   &kp X       &kp C     &kp V      &kp B      &kp GRAVE        &kp RBKT   &kp N     &kp M   &kp COMMA  &kp DOT  &kp FSLH   &lt SCROLL BACKSLASH
 &td0               &kp C_MUTE  &kp LWIN  &kp LCTRL  &kp SPACE  &to_scroll_layer &lt 2 RET  &kp BSPC                              &td1
             >;
         };
@@ -144,7 +149,7 @@
 &to_layer_0 ESC     &to_layer_0 N1  &to_layer_0 N2  &to_layer_0 N3  &to_layer_0 N4  &to_layer_0 N5                   &to_layer_0 N6   &to_layer_0 N7  &to_layer_0 N8  &to_layer_0 N9  &to_layer_0 N0      &to_layer_0 MINUS
 &to_layer_0 TAB     &to_layer_0 Q   &to_layer_0 W   &to_layer_0 E   &to_layer_0 R   &to_layer_0 T                    &to_layer_0 Y    &to_layer_0 U   &to_layer_0 I   &to_layer_0 O   &to_layer_0 P       &to_layer_0 EQUAL
 &to_layer_0 CAPS    &to_layer_0 A   &mkp RCLK       &mkp MCLK       &mkp_exit_AML LCLK       &msc SCRL_UP    &msc SCRL_LEFT   &msc SCRL_LEFT   &msc SCRL_UP    &mkp LCLK       &mkp MCLK       &mkp RCLK           &to_layer_0 SINGLE_QUOTE  &to_layer_0 SEMICOLON
-&to_layer_0 LSHIFT  &to_layer_0 Z   &to_layer_0 X   &mkp MB4        &mkp MB5        &msc SCRL_DOWN  &msc SCRL_RIGHT  &msc SCRL_RIGHT  &msc SCRL_DOWN  &mkp MB4        &mkp MB5        &to_layer_0 PERIOD  &to_layer_0 SLASH         &to_layer_0 BACKSLASH
+&to_layer_0 LSHIFT  &to_layer_0 Z   &to_layer_0 X   &mkp MB4        &mkp MB5        &msc SCRL_DOWN  &msc SCRL_RIGHT  &msc SCRL_RIGHT  &msc SCRL_DOWN  &mkp MB4        &mkp MB5        &to_layer_0 PERIOD  &to_layer_0 SLASH         &lt SCROLL BACKSLASH
 &trans                              &trans          &trans          &trans          &trans          &trans           &trans           &trans                                                              &trans
             >;
         };
