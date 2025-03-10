@@ -33,14 +33,18 @@
 
 ### .keymapを直接編集する
 キーマップを直接編集したい方は
-[config/ZaruBall.keymap](config/ZaruBall.keymap)
+[config/ZaruBall.keymap](config/Z]]aruBall.keymap)
 を編集してください。<br>
 boards/shields下にもZaruBall.keymapが存在しますが、config化のものの方が優先されます。<br>
-詳しくは公式Docs　https://zmk.dev/docs/keymaps　を解読してみてください。
+詳しくは公式Docs
+https://zmk.dev/docs/keymaps
+を解読してみてください。
 
 
 ### keymap editorを利用する方法
-keymap editor https://nickcoutsos.github.io/keymap-editor/ を起動し、Githubアカウントを登録。<br>
+keymap editor
+https://nickcoutsos.github.io/keymap-editor/
+を起動し、Githubアカウントを登録。<br>
 SourceにGithub、Repositoryにフォークした本リポジトリ、Branchを指定するとキーマップが編集できるようになります。<br>
 GUI上で対応するキーをクリックして使用したいキーコードを入力することで編集できます。<br>
 Saveボタンで参照しているリポジトリにpushでき、リポジトリのActionからWorkflowを実行することでファームウェアが完成します。
