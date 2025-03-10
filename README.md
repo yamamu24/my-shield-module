@@ -43,7 +43,9 @@ https://zmk.dev/docs/keymaps
 
 
 ### keymap editorを利用する方法
-keymap editor https://nickcoutsos.github.io/keymap-editor/ を起動し、Githubアカウントを登録。<br>
+keymap editor
+https://nickcoutsos.github.io/keymap-editor/
+を起動し、Githubアカウントを登録。<br>
 SourceにGithub、Repositoryにフォークした本リポジトリ、Branchを指定するとキーマップが編集できるようになります。<br>
 GUI上で対応するキーをクリックして使用したいキーコードを入力することで編集できます。<br>
 Saveボタンで参照しているリポジトリにpushでき、リポジトリのActionからWorkflowを実行することでファームウェアが完成します。
