@@ -8,6 +8,14 @@
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/pointing.h>
 
+#define BASE 0
+#define LOWER 1
+#define RAISE 2
+#define ADJUST 3
+#define MOUSE 4
+
+#define SCROLL 1
+
 / {
     conditional_layers {
         compatible = "zmk,conditional-layers";
@@ -25,28 +33,30 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&mt LALT LANG2>, <&mo 2>, <&mo 4>;
+            bindings = <&mt LALT LANG2>, <&mo RAISE>, <&mo MOUSE>;
         };
 
         td1: tap_dance_1 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&mt RCTL LANG1>, <&mo 2>, <&mo 5>;
+            bindings = <&mt RCTL LANG1>, <&mo RAISE>, <&mo 5>;
         };
     };
 };
 
-&sl { release-after-ms = <250>;}; // ダブルクリックのために必要な秒数（mkp_exit_AMLにて）
+&sl { release-after-ms = <250>;}; // time needed for double click (for mkp_exit_AML)
 / {
     macros {
+        // When in AML, move to default layer when key (except mouse button) pressed
         to_layer_0: to_layer_0 {
             compatible = "zmk,behavior-macro-one-param";                    
             #binding-cells = <1>;
-            bindings = <&to 0 &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
+            bindings = <&to BASE &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
             label = "TO_layer_0";
         };
 
+        // When LCLK pressed, exit AML (after 250ms cause by sticky layer)
         mkp_exit_AML: mkp_exit_AML {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
@@ -62,6 +72,7 @@
             label = "MKP_EXIT_AML";
         };
 
+        // Support swapping into Scroll layer when AML is activated
         to_scroll_layer: to_scroll_layer {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -138,6 +149,7 @@
             >;
         };
 
+        // Extra layer can be added in ZMK STUDIO
         extra1 { status = "reserved"; };
 
         extra2 { status = "reserved"; };
