@@ -125,7 +125,7 @@
 &trans         &none  &trans     &trans     &trans          &trans           &trans     &kp DEL                                  &trans
             >;
         };
-
+    
         adjust_layer {
             display-name = "Adjust";
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
