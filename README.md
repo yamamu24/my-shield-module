@@ -6,6 +6,7 @@
 ## ビルド方法
 既にデフォルトのキーマップは作成してあります。<br>
 まずはこのキーマップでファームウェアをビルドしてキーボードに書き込んでみましょう。<br>
+
 キーマップのビルドはGithub Actionにて行います。<br>
 1. リポジトリを開いて上部のタブからActionを選びます。
 2. 左側の.github/workflows/build.ymlを左クリック。
@@ -47,7 +48,7 @@ https://nickcoutsos.github.io/keymap-editor/
 を起動し、Githubアカウントを登録。<br>
 SourceにGithub、Repositoryにフォークした本リポジトリ、Branchを指定するとキーマップが編集できるようになります。<br>
 GUI上で対応するキーをクリックして使用したいキーコードを入力することで編集できます。<br>
-Saveボタンで参照しているリポジトリにpushでき、リポジトリのActionからWorkflowを実行することでファームウェアが完成します。
+Saveボタンで参照しているリポジトリにpushでき、自動的にWorkflowが実行されて新しいファームウェアがビルドされます。
 
 
 ### ZMK Studioを利用する方法
